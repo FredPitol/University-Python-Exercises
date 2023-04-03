@@ -1,0 +1,45 @@
+'''
+EXEMPLO 3:
+Ler o voto de 100 (STOP) moradores para síndico do prédio.
+Os cadidatos são:
+
+CRIAR UM MENU DE OPÇÕES:
+
+1: Fulano de Tal
+2: Beltrano de Tal
+3: Cicrano de Tal
+
+Exiba o resultado da votação em porcentagem(%)
+fulano   = ?
+beltrano = ?
+cicrano  = ?
+
+% = PARTE / TOTAL * 100
+''' 
+moradores, fulano, beltrano, cicrano = 0, 0, 0, 0
+while moradores < 5:
+  # TRATAMENTO DE EXCEÇÃO
+  try:
+    print('MENU:')
+    print('Escolha: ')
+    print('[1]: Fulano de Tal')
+    print('[2]: Beltrano de Tal')
+    print('[3]: Cicrano de Tal')
+    voto = int(input(f'Voto do {moradores + 1}º Morador: '))
+    # TRATAMENTO DE ERRO:
+    if voto <= 0 or voto > 3:
+      print('ERRO: Dados de entrada.')
+    else:
+      if voto == 1:
+        fulano = fulano + 1
+      elif voto == 2:
+        beltrano += 1
+      else:
+        cicrano += 1
+      moradores += 1
+      print(f'RESULTADO DA VOTAÇÃO: ')
+      print(f'VOTOS DE FULANO: {fulano / moradores * 100: .1f} %')
+      print(f'VOTOS DE BELTRANO: {beltrano / moradores * 100: .1f} %')
+      print(f'VOTOS DE CICRANO: {cicrano / moradores * 100: .1f} %')
+  except:
+    print('ERRO: Dados de entrada.')
